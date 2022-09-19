@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    font-family: 'Calibri';
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-evenly {
+    justify-content: space-evenly;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.gap-1 {
+    gap: 0.25rem;
+}
+
+.gap-2 {
+    gap: 0.5rem;
+}
+
+.gap-4 {
+    gap: 1rem;
+}
+
+.gap-8 {
+    gap: 2rem;
+}
+
+.min-h-screen {
+    min-height: 100vh;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.table-cell {
+    min-width: 29%;
+    border: 1px solid darkgrey;
+    padding: 0 0.5%;
+    word-break: break-all;
+}
+
+.table-cell-actions {
+    width: 8%;
+    padding: 0 1%;
+    border: 1px solid darkgrey;
+}
+
+.table-head {
+}
+
+.cell-action {
+    cursor: pointer;
+    width: 1rem; 
+}
