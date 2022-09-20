@@ -27,6 +27,10 @@ body {
     justify-content: flex-start;
 }
 
+.justify-end {
+    justify-content: flex-end;
+}
+
 .justify-between {
     justify-content: space-between;
 }
@@ -67,6 +71,36 @@ body {
     font-weight: 700;
 }
 
+.header {
+    background-color: lightgray;
+    z-index: 1;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+}
+
+.header-title {
+    width: calc(90% + 4px);
+    border: 1px solid darkgrey;
+}
+
+.header-action {
+    width: calc(10% - 8px);
+    border: 1px solid darkgrey;
+}
+
+.header-action-icon {
+    height: 21px;
+    cursor: pointer;
+}
+
+.table-rows {
+    position: relative;
+    top: 44px;
+}
+
 .table-cell {
     min-width: 29%;
     border: 1px solid darkgrey;
@@ -80,10 +114,102 @@ body {
     border: 1px solid darkgrey;
 }
 
-.table-head {
-}
-
 .cell-action {
     cursor: pointer;
-    width: 1rem; 
+    width: 1rem;
 }
+
+/* modal starts here */
+.table__modal {
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.visible-transition {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .3s linear;
+}
+
+.hidden-transition {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s .3s, opacity .3s linear;
+}
+
+.modal__header {
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.modal__title {
+    font-family: GOT;
+    font-size: 0.875rem;
+    color: white;
+}
+
+.modal__content {
+    border: 1px solid rgb(110, 110, 110);
+    min-width: 60%;
+    max-width: 60%;
+    background-color: rgb(56, 56, 56);
+}
+
+.modal__form {
+    padding: 0.5rem;
+}
+
+.form__input {
+    width: 80%;
+}
+
+.modal__close-btn {
+    padding: 0 0.375rem;
+    color: black;
+    background-color: lightgray;
+    cursor: pointer;
+    border: solid 1px darkgray;
+    border-radius: 0.25rem;
+}
+
+.modal__close-btn:hover {
+    box-shadow: rgba(0, 0, 0) 3px 3px 5px;
+}
+
+.modal__close-btn:active {
+    box-shadow: rgba(0, 0, 0) 1px 1px 5px;
+}
+
+.modal-btn {
+    margin: 0.5rem;
+    color: black;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.modal-btn:hover {
+    box-shadow: rgba(0, 0, 0) 3px 3px 5px;
+}
+
+.modal-btn:active {
+    box-shadow: rgba(0, 0, 0) 1px 1px 5px;
+}
+
+.submit-btn {
+    background-color: white;
+    border: 1px solid black;
+}
+
+.cancel-btn {
+    background-color: white;
+    border: 1px solid black;
+}
+
+/* modal ends here */
