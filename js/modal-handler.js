@@ -1,5 +1,4 @@
-import { postUser, putUser } from './backend.js';
-import { handleUserChange } from './user-handler.js';
+import { createUser, modifyUser } from './user-handler.js';
 
 const modal = document.querySelector('.table__modal');
 const closeModalX = document.querySelector('.modal__close-btn');
@@ -11,27 +10,23 @@ const nameInput = document.querySelector('.form__input_name');
 const emailInput = document.querySelector('.form__input_email');
 const addressInput = document.querySelector('.form__input_address');
 
-addUser.addEventListener('click', () => showModal());
+addUser.addEventListener('click', () => openModal());
 cancelBtn.addEventListener('click', () => hideModal());
 submitBtn.addEventListener('click', () => {
     const formEntries = getFormEntries();
-    const userPromise = formEntries.id ? putUser(formEntries) : postUser(formEntries);
-    userPromise.then(user => {
-        handleUserChange(user, !formEntries.id);
-        hideModal();
-    });
+    formEntries.id ? modifyUser(formEntries) : createUser(formEntries);
 });
 
-const openModal = (user) => {
+const openModal = (user = null) => {
     fillForm(user);
     showModal();
 };
 
 const fillForm = (user) => {
-    idInput.value = user.id;
-    nameInput.value = user.name;
-    emailInput.value = user.email;
-    addressInput.value = user.address;
+    idInput.value = user?.id || '';
+    nameInput.value = user?.name || '';
+    emailInput.value = user?.email || '';
+    addressInput.value = user?.address || '';
 }
 
 const getFormEntries = () => {
@@ -68,4 +63,4 @@ window.onclick = function (event) {
 
 window.onresize = hideModal;
 
-export { openModal };
+export { openModal, hideModal };

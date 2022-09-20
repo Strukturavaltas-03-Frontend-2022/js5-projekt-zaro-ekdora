@@ -29,9 +29,4 @@ const deleteUser = (userId) => request(`${BE_URL}${userId}`, {
     headers: { "Content-Type": "application/json" },
 });
 
-export {
-    getUsers,
-    postUser,
-    putUser,
-    deleteUser
-}
+export { getUsers, postUser, putUser, deleteUser };

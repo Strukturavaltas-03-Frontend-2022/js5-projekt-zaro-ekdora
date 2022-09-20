@@ -1,22 +1,28 @@
+import { deleteUser, postUser, putUser } from './backend.js';
 import { createUserRow } from './template-builder.js';
-import { deleteUser } from './backend.js';
+import { hideModal } from './modal-handler.js';
 
-const handleUserChange = (user, isNewUser) => {
-    if (isNewUser) {
-        createUserRow(user);
-    } else {
+const createUser = (user) => {
+    postUser(user).then((user) => createUserRow(user));
+    hideModal();
+}
+
+const modifyUser = (user) => {
+    putUser(user).then((user) => {
         const userEl = document.getElementById(user.id);
         const userElCells = userEl.querySelectorAll('.table-cell');
         userElCells[0].innerHTML = user.name;
         userElCells[1].innerHTML = user.email;
         userElCells[2].innerHTML = user.address;
-    }
-};
+    });
+    hideModal();
+}
 
 const removeUser = (userId) => {
-    const user = document.getElementById(userId);
-    user.remove();
-    deleteUser(userId);
+    deleteUser(userId).then(() => {
+        const user = document.getElementById(userId);
+        user.remove();
+    });
 };
 
-export { handleUserChange, removeUser };
+export { createUser, removeUser, modifyUser };
