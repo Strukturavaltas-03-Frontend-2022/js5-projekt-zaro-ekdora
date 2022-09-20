@@ -45,8 +45,18 @@
                         <img src="assets/images/close.svg">
                     </button>
                 </div>
-                <div class="modal__form-placeholder"></div>
-                <div class="modal__footer-placeholder"></div>
+                <div class="modal__form">
+                    <form name="userForm" class="flex flex-col items-center gap-4">
+                        <input type="hidden" name="id" class="form__input_id">
+                        <input type="text" name="name" placeholder="Name" class="form__input_name form__input">
+                        <input type="text" name="email" placeholder="E-mail" class="form__input_email form__input">
+                        <input type="text" name="address" placeholder="Address" class="form__input_address form__input">
+                    </form>
+                </div>
+                <div class="modal__footer flex justify-end">
+                    <button class="cancel-btn modal-btn">Cancel</button>
+                    <button type="submit" class="submit-btn modal-btn">Submit</button>
+                </div>
             </div>
         </div>
     </div>
