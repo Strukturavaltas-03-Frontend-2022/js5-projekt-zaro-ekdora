@@ -1,8 +1,10 @@
 import { createUser, modifyUser } from './user-handler.js';
+import { formError, setFormHints, setSubmitBtn } from './error-handler.js';
 
-const modal = document.querySelector('.table__modal');
-const closeModalX = document.querySelector('.modal__close-btn');
 const addUser = document.querySelector('.header-action-icon');
+const modal = document.querySelector('.table__modal');
+const modalTitle = document.querySelector('.modal__title');
+const closeModalX = document.querySelector('.modal__close-btn');
 const cancelBtn = document.querySelector('.cancel-btn');
 const submitBtn = document.querySelector('.submit-btn');
 const idInput = document.querySelector('.form__input_id');
@@ -19,6 +21,13 @@ submitBtn.addEventListener('click', () => {
 
 const openModal = (user = null) => {
     fillForm(user);
+    if(!user) {
+        modalTitle.innerHTML = 'CREATE USER';
+        Object.keys(formError).forEach(formErrorKey => formError[formErrorKey] = true);
+        setSubmitBtn();
+    } else {
+        modalTitle.innerHTML = 'MODIFY USER';
+    }
     showModal();
 };
 
@@ -34,7 +43,7 @@ const getFormEntries = () => {
     const formEntries = {};
     for (const entry of formData.entries()) {
         const key = entry[0];
-        const value = entry[1];
+        const value = entry[1].trim();
         if (key !== 'id' || (key === 'id' && value)) {
             formEntries[key] = value;
         }
@@ -51,15 +60,11 @@ const showModal = function () {
 const hideModal = function () {
     modal.classList.remove("visible-transition");
     modal.classList.add("hidden-transition");
+    Object.keys(formError).forEach(formErrorKey => formError[formErrorKey] = false);
+    setFormHints();
 };
 
 closeModalX.onclick = hideModal;
-
-window.onclick = function (event) {
-    if (event.target == modal) {
-        hideModal();
-    }
-};
 
 window.onresize = hideModal;
 

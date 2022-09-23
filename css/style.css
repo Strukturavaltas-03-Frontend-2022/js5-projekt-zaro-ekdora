@@ -72,7 +72,7 @@ body {
 }
 
 .header {
-    background-color: lightgray;
+    background-color: lightblue;
     z-index: 1;
 }
 
@@ -81,9 +81,10 @@ body {
     top: 0;
 }
 
-.header-title {
+.header-msg {
     width: calc(90% + 4px);
     border: 1px solid darkgrey;
+    color: green;
 }
 
 .header-action {
@@ -93,12 +94,21 @@ body {
 
 .header-action-icon {
     height: 21px;
+    border-radius: 3px;
     cursor: pointer;
 }
 
 .table-rows {
     position: relative;
     top: 44px;
+}
+
+.table-row:nth-child(odd) {
+    background-color: whitesmoke;
+}
+
+.table-row:nth-child(even) {
+    background-color: lightcyan;
 }
 
 .table-cell {
@@ -145,29 +155,59 @@ body {
 }
 
 .modal__header {
-    font-size: 1rem;
-    padding: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .modal__title {
-    font-family: GOT;
-    font-size: 0.875rem;
-    color: white;
+    font-family: Calibri;
+    font-size: 1.5rem;
+    color: black;
 }
 
 .modal__content {
     border: 1px solid rgb(110, 110, 110);
-    min-width: 60%;
-    max-width: 60%;
-    background-color: rgb(56, 56, 56);
+    min-width: 45%;
+    max-width: 45%;
+    padding: 1rem;
+    background-color: lightgray;
 }
 
-.modal__form {
-    padding: 0.5rem;
+.form-info {
+    width: 99%;
+    height: 1.25rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
 }
 
 .form__input {
-    width: 80%;
+    width: 98%;
+    font-size: 1.25rem;
+    outline: none;
+}
+
+.input-info {
+    width: 99%;
+    height: 1.25rem;
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+}
+
+.input-border-hint {
+    border: solid 1px black;
+    border-radius: 3px;
+}
+
+.input-border-error {
+    border: solid 1px red;
+    border-radius: 3px;
+}
+
+.input-hint {
+    color: black;
+}
+
+.input-error {
+    color: red;
 }
 
 .modal__close-btn {
@@ -188,10 +228,11 @@ body {
 }
 
 .modal-btn {
-    margin: 0.5rem;
-    color: black;
     padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 700;
     cursor: pointer;
+    color: black;
 }
 
 .modal-btn:hover {
@@ -202,14 +243,24 @@ body {
     box-shadow: rgba(0, 0, 0) 1px 1px 5px;
 }
 
+.modal-btn-disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
 .submit-btn {
-    background-color: white;
     border: 1px solid black;
+    border-radius: 3px;
+    background-color: lightblue;
+    color: white;
 }
 
 .cancel-btn {
+    margin-right: 1rem;
+    border: 1px solid darkcyan;
+    border-radius: 3px;
     background-color: white;
-    border: 1px solid black;
+    color: darkcyan;
 }
 
 /* modal ends here */

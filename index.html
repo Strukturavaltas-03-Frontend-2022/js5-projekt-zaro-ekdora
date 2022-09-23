@@ -13,7 +13,7 @@
     <div class="flex flex-col items-center justify-center">
         <div class="header flex flex-col items-center justify-center w-full sticky">
             <div class="header-row flex justify-end w-full">
-                <div class="header-title"></div>
+                <div class="header-msg flex justify-center font-bold"></div>
                 <div class="header-action flex items-center justify-center">
                     <img class="header-action-icon" src="assets/images/add.svg">
                 </div>
@@ -40,17 +40,21 @@
         <div class="modal__content flex flex-col justify-between">
             <div class="flex flex-col">
                 <div class="modal__header flex items-center justify-between">   
-                    <div class="modal__title justify-center">MODIFY/CREATE USER</div>
+                    <div class="modal__title justify-center"></div>
                     <button class="modal__close-btn flex items-center justify-center">
                         <img src="assets/images/close.svg">
                     </button>
                 </div>
                 <div class="modal__form">
-                    <form name="userForm" class="flex flex-col items-center gap-4">
+                    <form name="userForm" class="flex flex-col">
                         <input type="hidden" name="id" class="form__input_id">
-                        <input type="text" name="name" placeholder="Name" class="form__input_name form__input">
-                        <input type="text" name="email" placeholder="E-mail" class="form__input_email form__input">
-                        <input type="text" name="address" placeholder="Address" class="form__input_address form__input">
+                        <div class="form-info"></div>
+                        <input type="text" name="name" placeholder="* Name" class="form__input_name form__input">
+                        <div class="input-info name-input-info"></div>
+                        <input type="text" name="email" placeholder="* E-mail" class="form__input_email form__input">
+                        <div class="input-info email-input-info"></div>
+                        <input type="text" name="address" placeholder="* Address" class="form__input_address form__input">
+                        <div class="input-info address-input-info"></div>
                     </form>
                 </div>
                 <div class="modal__footer flex justify-end">
@@ -62,6 +66,7 @@
     </div>
 
     <script src="./js/main.js" type="module"></script>
+    <script src="./js/error-handler.js" type="module"></script>
 </body>
 
 </html>

@@ -1,5 +1,4 @@
-import { openModal } from './modal-handler.js';
-import { removeUser } from './user-handler.js';
+import { getUserById, removeUser } from './user-handler.js';
 
 const tableRows = document.querySelector('.table-rows');
 
@@ -33,7 +32,7 @@ const createUserRow = (user) => {
     modifyIcon.classList.add('cell-action');
     modifyIcon.src = 'assets/images/pencil.svg';
     modifyIcon.alt = 'modify';
-    modifyIcon.onclick = () => openModal(user);
+    modifyIcon.onclick = () => getUserById(user.id);
     iconWrapper.appendChild(modifyIcon);
 
     const deleteIcon = document.createElement('img');

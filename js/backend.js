@@ -12,6 +12,8 @@ async function request(url, options = {}) {
 
 const getUsers = () => request(`${BE_URL}`);
 
+const getUser = (userId) => request(`${BE_URL}${userId}`);
+
 const postUser = (formEntries) => request(`${BE_URL}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -29,4 +31,4 @@ const deleteUser = (userId) => request(`${BE_URL}${userId}`, {
     headers: { "Content-Type": "application/json" },
 });
 
-export { getUsers, postUser, putUser, deleteUser };
+export { getUsers, getUser, postUser, putUser, deleteUser };
